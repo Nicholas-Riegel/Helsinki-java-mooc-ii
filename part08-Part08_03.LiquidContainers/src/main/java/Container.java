@@ -26,18 +26,18 @@ public class Container {
     }
 
     public int remove(int amountToRemove){
+        int amountRemoved;
         if (amountToRemove < 0){
             return 0;
         }
-        int amountRemoved;
         if (amountToRemove > levelFilledTo){
             amountRemoved = levelFilledTo;
             levelFilledTo = 0;
-            return amountRemoved;
         } else {
             levelFilledTo -= amountToRemove;
-            return amountToRemove;
+            amountRemoved = amountToRemove;
         }
+        return amountRemoved;
     }
 
     public void move(int amountToMove, Container containerToMoveTo){
