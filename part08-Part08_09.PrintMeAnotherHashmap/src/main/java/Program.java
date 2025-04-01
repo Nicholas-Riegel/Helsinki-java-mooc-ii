@@ -1,11 +1,11 @@
-
 import java.util.HashMap;
 
 public class Program {
 
     public static void main(String[] args) {
+        
         // Test your program here!
-        HashMap<String, Book> hashmap = new HashMap<>();
+        HashMap<String,Book> hashmap = new HashMap<>();
         hashmap.put("sense", new Book("Sense and Sensibility", 1811, "..."));
         hashmap.put("prejudice", new Book("Pride and prejudice", 1813, "...."));
 
