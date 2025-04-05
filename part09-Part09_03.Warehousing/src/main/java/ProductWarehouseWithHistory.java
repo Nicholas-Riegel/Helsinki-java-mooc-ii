@@ -27,11 +27,13 @@ public class ProductWarehouseWithHistory extends ProductWarehouse {
 
     // which prints history related information for the product in the way presented in the example.
     public void printAnalysis(){
-        System.out.println("Product: " + getName());
-        System.out.println("History: " + history());
-        System.out.println("Largest amount of product: " + changeHistory.maxValue());
-        System.out.println("Smallest amount of product: " + changeHistory.minValue()); 
-        System.out.println("Average: " + changeHistory.average());
+        System.out.println(
+            "Product: " + getName() + 
+            "\nHistory: " + history() +
+            "\nLargest amount of product: " + changeHistory.maxValue() +
+            "\nSmallest amount of product: " + changeHistory.minValue() +
+            "\nAverage: " + changeHistory.average()
+        );
     } 
 
     // returns the product history like this [0.0, 119.2, 21.2]. Use the string representation of the ChangeHistory object as is.
