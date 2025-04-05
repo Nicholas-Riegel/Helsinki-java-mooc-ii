@@ -8,6 +8,14 @@ public class Person {
         this.address = address;
     }
 
+    public String getName(){
+        return name;
+    }
+
+    public String getAddress(){
+        return address;
+    }
+    
     @Override
     public String toString(){
         return this.name + "\n  " + this.address;
