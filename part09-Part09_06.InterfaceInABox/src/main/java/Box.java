@@ -1,19 +1,19 @@
 import java.util.ArrayList;
 
-public class Box implements Packable{
+public class Box implements Packable {
 
-    private double capacityKg;
+    private double capacity;
     private ArrayList<Packable> contents;
 
-    public Box(double capacityKg){
-        this.capacityKg = capacityKg;
+    public Box(double capacity){
+        this.capacity = capacity;
         this.contents = new ArrayList<>();
     }
 
     public void add(Packable item){
-        if (capacityKg - item.weight() >= 0){
+        if (capacity - item.weight() >= 0){
             contents.add(item);
-            capacityKg -= item.weight();
+            capacity -= item.weight();
         }
     }
 

@@ -8,7 +8,7 @@ public class Book implements Packable {
     public Book(String author, String title, double weight){
         this.author = author;
         this.title = title;
-        this.weight =  weight;
+        this.weight = weight;
     }
 
     public double weight(){
