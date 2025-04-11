@@ -20,18 +20,18 @@ public class Warehouse {
 
     // which returns the price of the product it received as a parameter. If the product hasn't been added to the warehouse, the method must return -99.
     public int price(String product){
-        if (!productPrices.keySet().contains(product)){
-            return -99;
+        if (productPrices.keySet().contains(product)){
+            return productPrices.get(product);
         }
-        return productPrices.get(product);
+        return -99;
     } 
     
     // returns the current remaining stock of the product in the warehouse. If the product hasn't been added to the warehouse, the method must return 0.
     public int stock(String product){
-        if (!productStocks.keySet().contains(product)){
-            return 0;
+        if (productStocks.keySet().contains(product)){
+            return productStocks.get(product);
         }
-        return productStocks.get(product);
+        return 0;
     } 
 
     // reduces the stock remaining for the product it received as a parameter by one, and returns true if there was stock remaining. If the product was not available in the warehouse the method returns false. A products stock can't go below zero.
