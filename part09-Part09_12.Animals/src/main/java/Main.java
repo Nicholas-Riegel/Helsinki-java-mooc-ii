@@ -25,5 +25,4 @@ public class Main {
         Cat c = (Cat) cat;
         c.purr();
     }
-
 }
