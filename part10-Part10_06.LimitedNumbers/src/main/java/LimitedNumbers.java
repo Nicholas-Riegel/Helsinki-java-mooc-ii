@@ -2,7 +2,6 @@
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-import java.util.stream.Collectors;
 
 // Write a program that reads user input. When the user gives a negative number as an input, the input reading will be stopped. After this, print all the numbers the user has given as input that are between 1 and 5.
 
@@ -24,6 +23,9 @@ public class LimitedNumbers {
             nums.add(input);
         }
 
-        nums.stream().filter(i -> i >= 1 && i <= 5).forEach(x -> System.out.println(x));        
+        nums
+            .stream()
+            .filter(i -> i >= 1 && i <= 5)
+            .forEach(i -> System.out.println(i));        
     }
 }

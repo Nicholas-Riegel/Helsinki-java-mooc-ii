@@ -19,7 +19,9 @@ public class PrintingUserInput {
             inputs.add(input);
         }
 
-        String response = inputs.stream().reduce("", (prev, i) -> prev + i + "\n");
-        System.out.println(response);
+        // String response = inputs.stream().reduce("", (prev, i) -> prev + i + "\n");
+        // System.out.println(response);
+        
+        inputs.stream().forEach(i -> System.out.println(i));
     }
 }
