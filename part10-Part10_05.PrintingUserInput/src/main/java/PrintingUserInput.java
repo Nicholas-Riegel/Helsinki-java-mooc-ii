@@ -1,4 +1,3 @@
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -19,9 +18,10 @@ public class PrintingUserInput {
             inputs.add(input);
         }
 
-        // String response = inputs.stream().reduce("", (prev, i) -> prev + i + "\n");
-        // System.out.println(response);
+        // inputs.stream().forEach(i -> System.out.println(i));
         
-        inputs.stream().forEach(i -> System.out.println(i));
+        String response = inputs.stream().reduce("", (base, next) -> base + next + "\n");
+        
+        System.out.println(response);
     }
 }

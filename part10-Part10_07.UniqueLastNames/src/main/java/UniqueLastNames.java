@@ -1,4 +1,3 @@
-
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -11,6 +10,7 @@ public class UniqueLastNames {
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
+            
             System.out.println("Continue personal information input? \"quit\" ends:");
             
             String continueQ = "quit";
