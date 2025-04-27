@@ -14,4 +14,16 @@ public class BooksFromFile {
 
     }
 
+    public static List<Book> readBooks(String file){
+        List<Book> books = new ArrayList<>();
+        try {
+            Files.lines(Paths.get(file))
+                .map(line -> line.split(","))
+                .map(line -> new Book(line[0], Integer.valueOf(line[1]), Integer.valueOf(line[2]), line[3]))
+                .forEach(b -> books.add(b));
+        } catch (Exception e){
+            System.out.println("Error: " + e.getMessage());
+        }
+        return books;
+    }
 }
