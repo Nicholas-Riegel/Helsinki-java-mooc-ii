@@ -1,4 +1,3 @@
-
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -12,15 +11,6 @@ public class LiteracyComparison {
         // List<String> rates = readFile("part10-Part10_13.LiteracyComparison/literacy.csv");
         List<String> rates = readFile("literacy.csv");
         
-        rates
-            .stream()
-            .map(line -> line.split(","))
-            .sorted((a, b) -> Double.compare(Double.parseDouble(a[5].trim()), Double.parseDouble(b[5].trim())))
-            .forEach(line -> {
-                System.out.println(line[3] + " (" + line[4] + "), " + line[2].trim().split(" ")[0] + ", " + line[5]);
-            });
-
-        
         // rates
         //     .stream()
         //     .map(line -> line.split(","))
@@ -32,13 +22,20 @@ public class LiteracyComparison {
         //     .sorted()
         //     .forEach(r -> System.out.println(r));
 
+        rates
+            .stream()
+            .map(line -> line.split(","))
+            .sorted((a, b) -> Double.compare(Double.parseDouble(a[5].trim()), Double.parseDouble(b[5].trim())))
+            .forEach(line -> {
+                System.out.println(line[3] + " (" + line[4] + "), " + line[2].trim().split(" ")[0] + ", " + line[5]);
+            });
     }
 
     public static List<String> readFile(String file){
         List<String> rates = new ArrayList<>();
         try (Stream<String> lines = Files.lines(Paths.get(file))){
             lines.forEach(rates::add);
-        } catch (Exception e){
+        } catch (IOException e){
             System.out.println("Error: " + e.getMessage());
         }
         return rates; 
