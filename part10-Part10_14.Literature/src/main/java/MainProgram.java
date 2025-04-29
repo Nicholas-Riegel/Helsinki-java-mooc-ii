@@ -19,8 +19,11 @@ public class MainProgram {
                     break;
                 }
                 System.out.print("Input the age recommendation: ");
-                int age = Integer.valueOf(scanner.nextLine());
-                books.add(new Book(title, age));
+                String age = scanner.nextLine();
+                if (age.isEmpty()){
+                    break;
+                }
+                books.add(new Book(title, Integer.valueOf(age)));
             }
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
@@ -32,10 +35,9 @@ public class MainProgram {
 
         Collections.sort(books, comparator);
 
-        System.out.println("");
-        System.out.println(books.size() + " books in total.\n");
+        System.out.println("\n" + books.size() + " books in total.\n");
         System.out.println("Books:");
-        
+
         for (Book book : books) {
             System.out.println(book);
         }
