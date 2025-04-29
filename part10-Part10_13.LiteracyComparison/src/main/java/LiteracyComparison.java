@@ -27,7 +27,12 @@ public class LiteracyComparison {
             .map(line -> line.split(","))
             .sorted((a, b) -> Double.compare(Double.parseDouble(a[5].trim()), Double.parseDouble(b[5].trim())))
             .forEach(line -> {
-                System.out.println(line[3] + " (" + line[4] + "), " + line[2].trim().split(" ")[0] + ", " + line[5]);
+                System.out.println(
+                    line[3].trim() + " (" + 
+                    line[4].trim() + "), " + 
+                    line[2].trim().split(" ")[0] + ", " + 
+                    line[5].trim()
+                );
             });
     }
 
