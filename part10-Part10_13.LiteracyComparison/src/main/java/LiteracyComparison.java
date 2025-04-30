@@ -11,29 +11,29 @@ public class LiteracyComparison {
         // List<String> rates = readFile("part10-Part10_13.LiteracyComparison/literacy.csv");
         List<String> rates = readFile("literacy.csv");
         
-        // rates
-        //     .stream()
-        //     .map(line -> line.split(","))
-        //     .map(lineArray -> new LiteracyRecord(
-        //         lineArray[3].trim(), 
-        //         Integer.valueOf(lineArray[4].trim()), 
-        //         lineArray[2].trim().split(" ")[0], 
-        //         Double.valueOf(lineArray[5].trim())))
-        //     .sorted()
-        //     .forEach(r -> System.out.println(r));
-
         rates
             .stream()
             .map(line -> line.split(","))
-            .sorted((a, b) -> Double.compare(Double.parseDouble(a[5].trim()), Double.parseDouble(b[5].trim())))
-            .forEach(line -> {
-                System.out.println(
-                    line[3].trim() + " (" + 
-                    line[4].trim() + "), " + 
-                    line[2].trim().split(" ")[0] + ", " + 
-                    line[5].trim()
-                );
-            });
+            .map(lineArray -> new LiteracyRecord(
+                lineArray[3].trim(), 
+                Integer.valueOf(lineArray[4].trim()), 
+                lineArray[2].trim().split(" ")[0], 
+                Double.valueOf(lineArray[5].trim())))
+            .sorted()
+            .forEach(r -> System.out.println(r));
+
+        // rates
+        //     .stream()
+        //     .map(line -> line.split(","))
+        //     .sorted((a, b) -> Double.compare(Double.parseDouble(a[5].trim()), Double.parseDouble(b[5].trim())))
+        //     .forEach(line -> {
+        //         System.out.println(
+        //             line[3].trim() + " (" + 
+        //             line[4].trim() + "), " + 
+        //             line[2].trim().split(" ")[0] + ", " + 
+        //             line[5].trim()
+        //         );
+        //     });
     }
 
     public static List<String> readFile(String file){
