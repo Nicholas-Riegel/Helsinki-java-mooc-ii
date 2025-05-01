@@ -4,6 +4,7 @@ public class Card implements Comparable<Card> {
     private Suit suit;
 
     public Card(int value, Suit suit) {
+
         if (value < 2 || value > 14) {
             throw new IllegalArgumentException("Card value must be in range 2...14.");
         }
@@ -14,7 +15,9 @@ public class Card implements Comparable<Card> {
 
     @Override
     public String toString() {
+        
         String cardValue = "" + value;
+
         if(value == 11) {
             cardValue = "J";
         } else if (value == 12) {

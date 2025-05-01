@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class Hand implements Comparable<Hand>{
+public class Hand implements Comparable<Hand> {
 
     private List<Card> cards;
 
