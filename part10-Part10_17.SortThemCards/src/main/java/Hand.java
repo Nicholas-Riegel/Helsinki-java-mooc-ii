@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class Hand implements Comparable<Hand> {
+public class Hand implements Comparable<Hand>   {
 
     private List<Card> cards;
 
@@ -15,15 +15,18 @@ public class Hand implements Comparable<Hand> {
         cards.add(card);
     } 
     
+    // sorts cards by value then suit
     public void sort(){
         Collections.sort(cards);
     }
 
+    // sorts cards by suit then value
     public void sortBySuit(){
-        BySuitInValueOrder BySuitInValueSorter = new BySuitInValueOrder();
-        Collections.sort(cards, BySuitInValueSorter);
+        BySuitInValueOrder sorter = new BySuitInValueOrder();
+        Collections.sort(cards, sorter);
     }
 
+    // compares hands by value
     public int compareTo(Hand hand){
         int sumHand1 = this.cards.stream().map(c -> c.getValue()).reduce(0, (base, next) -> base + next);
         int sumHand2 = hand.cards.stream().map(c -> c.getValue()).reduce(0, (base, next) -> base + next);

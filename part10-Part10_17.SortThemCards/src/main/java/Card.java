@@ -12,7 +12,25 @@ public class Card implements Comparable<Card> {
         this.value = value;
         this.suit = suit;
     }
+    
+    public int getValue() {
+        return value;
+    }
+    
+    public Suit getSuit() {
+        return suit;
+    }
+    
+    // compares cards by value then suit
+    public int compareTo(Card card){
+        
+        if (this.value == card.value){
 
+            return this.suit.ordinal() - card.suit.ordinal();
+        }
+        return this.value - card.value;
+    }
+    
     @Override
     public String toString() {
         
@@ -29,20 +47,5 @@ public class Card implements Comparable<Card> {
         }
         
         return suit + " " + cardValue;
-    }
-
-    public int getValue() {
-        return value;
-    }
-
-    public Suit getSuit() {
-        return suit;
-    }
-
-    public int compareTo(Card card){
-        if (this.value == card.value){
-            return this.suit.ordinal() - card.suit.ordinal();
-        }
-        return this.value - card.value;
     }
 }
