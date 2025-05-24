@@ -43,7 +43,7 @@ public class AverageSensor implements Sensor {
     // returns the value of the sensor if it's on
     // if the sensor is not on throw a IllegalStateException
     public int read(){
-        if (isOn() == false || sensors.isEmpty()){
+        if (!isOn() || sensors.isEmpty()){
             throw new IllegalStateException();
         }
         int average = sensors.stream().mapToInt(s -> s.read()).sum() / sensors.size();
