@@ -24,8 +24,8 @@ public class SaveableDictionary {
 
     public boolean load(){
 
-        // try (Scanner scanner = new Scanner(new File("part11-Part11_13.SaveableDictionary/" + file))){
-        try (Scanner scanner = new Scanner(new File(file))){
+        try (Scanner scanner = new Scanner(new File("part11-Part11_13.SaveableDictionary/" + file))){
+        // try (Scanner scanner = new Scanner(new File(file))){
 
             while (scanner.hasNextLine()){
                 String line = scanner.nextLine();
@@ -44,8 +44,8 @@ public class SaveableDictionary {
 
         List<String> keys = new ArrayList<>();
         
-        // try (PrintWriter writer = new PrintWriter("part11-Part11_13.SaveableDictionary/" + file)) {
-        try (PrintWriter writer = new PrintWriter(file)) {
+        try (PrintWriter writer = new PrintWriter("part11-Part11_13.SaveableDictionary/" + file)) {
+        // try (PrintWriter writer = new PrintWriter(file)) {
         
             dictionary.keySet().stream().forEach(key -> {
                 if (!keys.contains(dictionary.get(key))){
@@ -76,4 +76,8 @@ public class SaveableDictionary {
         dictionary.remove(dictionary.get(word));
         dictionary.remove(word);
     }
+
+    // public Map<String, String> getDict(){
+    //     return dictionary;
+    // }
 }

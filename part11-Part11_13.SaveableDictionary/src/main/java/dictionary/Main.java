@@ -28,13 +28,23 @@ public class Main {
 
         SaveableDictionary dictionary = new SaveableDictionary("words.txt");
         boolean wasSuccessful = dictionary.load();
-
+        
         if (wasSuccessful) {
             System.out.println("Successfully loaded the dictionary from file");
         }
-
+        
         System.out.println(dictionary.translate("apina"));
         System.out.println(dictionary.translate("ohjelmointi"));
         System.out.println(dictionary.translate("alla oleva"));
+        
+        // SaveableDictionary dictionary = new SaveableDictionary("words.txt");
+        // dictionary.load();
+        // dictionary.getDict().clear();
+        // dictionary.add("hello", "world");
+        // dictionary.add("get", "stuffed");
+        // dictionary.add("yo", "mama");
+        // dictionary.save();
+        // dictionary.load();
+        // dictionary.getDict().entrySet().stream().forEach(entry -> System.out.println(entry.getKey() + ":" + entry.getValue()));
     }
 }
