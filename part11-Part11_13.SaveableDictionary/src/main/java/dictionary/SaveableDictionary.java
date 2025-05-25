@@ -1,9 +1,10 @@
 package dictionary;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -31,6 +32,7 @@ public class SaveableDictionary {
                 String[] parts = line.split(":");
                 add(parts[0], parts[1]);
             }
+
         } catch (Exception e) {
             System.out.println(e.getMessage());
             return false;
@@ -40,19 +42,19 @@ public class SaveableDictionary {
 
     public boolean save(){
 
-        Map<String, String> newDict = new HashMap<>();
+        List<String> keys = new ArrayList<>();
         
         for (String key : dictionary.keySet()){
-            if (!newDict.keySet().contains(dictionary.get(key))){
-                newDict.put(key, dictionary.get(key));
+            if (!keys.contains(dictionary.get(key))){
+                keys.add(key);
             }
         }
 
         // try (PrintWriter writer = new PrintWriter("part11-Part11_13.SaveableDictionary/" + file)) {
         try (PrintWriter writer = new PrintWriter(file)) {
         
-            for (String key : newDict.keySet()){
-                writer.println(key + ":" + newDict.get(key));
+            for (String key : keys){
+                writer.println(key + ":" + dictionary.get(key));
             }
             
         } catch (Exception e) {
