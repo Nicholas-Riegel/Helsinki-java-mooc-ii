@@ -44,18 +44,15 @@ public class SaveableDictionary {
 
         List<String> keys = new ArrayList<>();
         
-        for (String key : dictionary.keySet()){
-            if (!keys.contains(dictionary.get(key))){
-                keys.add(key);
-            }
-        }
-
         // try (PrintWriter writer = new PrintWriter("part11-Part11_13.SaveableDictionary/" + file)) {
         try (PrintWriter writer = new PrintWriter(file)) {
         
-            for (String key : keys){
-                writer.println(key + ":" + dictionary.get(key));
-            }
+            dictionary.keySet().stream().forEach(key -> {
+                if (!keys.contains(dictionary.get(key))){
+                    keys.add(key);
+                    writer.println(key + ":" + dictionary.get(key));
+                }
+            });
             
         } catch (Exception e) {
             System.out.println(e.getMessage());
