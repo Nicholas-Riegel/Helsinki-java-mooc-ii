@@ -77,7 +77,7 @@ public class SaveableDictionary {
         dictionary.remove(word);
     }
 
-    // public Map<String, String> getDict(){
-    //     return dictionary;
-    // }
+    public Map<String, String> getDict(){
+        return dictionary;
+    }
 }
