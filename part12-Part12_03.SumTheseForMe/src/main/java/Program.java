@@ -12,13 +12,12 @@ public class Program {
         int largest){
         
         int sum = 0;
-        
+        int leng = array.length - 1;
+            
         if (fromWhere < 0){
             fromWhere = 0;
         }
         
-        int leng = array.length - 1;
-
         if (toWhere > leng){
             toWhere = leng;
         }
