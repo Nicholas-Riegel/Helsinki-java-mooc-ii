@@ -15,17 +15,64 @@ public class MagicSquare {
         this.square = new int[size][size];
     }
 
+    // public MagicSquare(int[][] array){
+    //     square = array;
+    // }
+
     // implement these three methods
     public ArrayList<Integer> sumsOfRows() {
-        return new ArrayList<>();
+        
+        ArrayList<Integer> sums = new ArrayList<>();
+        
+        for (int row = 0; row < square.length; row++){
+            int sum = 0;
+            for (int col = 0; col < square[row].length; col++){
+                sum += square[row][col];
+                if (col == square[row].length - 1){
+                    sums.add(sum);
+                }
+            }
+        }
+        return sums;
     }
 
     public ArrayList<Integer> sumsOfColumns() {
-        return new ArrayList<>();
+        
+        ArrayList<Integer> sums = new ArrayList<>();
+        
+        for (int row = 0; row < square.length; row++){
+            for (int col = 0; col < square[row].length; col++){
+                if (row == 0){
+                    sums.add(square[row][col]);
+                } else {
+                    int n = sums.get(col);
+                    n += square[row][col];
+                    sums.set(col, n);
+                }
+            }
+        }
+        return sums;
     }
 
     public ArrayList<Integer> sumsOfDiagonals() {
-        return new ArrayList<>();
+        
+        ArrayList<Integer> sums = new ArrayList<>();
+        sums.add(square[0][0]);
+        sums.add(square[0][square[0].length - 1]);
+        
+        for (int row = 1; row < square.length; row++){
+
+            // top left to bottom right
+            int n0 = sums.get(0);
+            n0 += square[row][row];
+            sums.set(0, n0);
+            
+            // top right to bottom left
+            int n1 = sums.get(1);
+            n1 += square[row][square[row].length - (row + 1)];
+            sums.set(1, n1);
+        }
+        return sums;
     }
 
     // ready-made helper methods -- don't touch these
